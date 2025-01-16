@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #8B0000;
+            padding: 10px 0;
+            color: #ffffff;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #8B0000;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: box-shadow 0.3s ease;
+        }
+        li:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            color: #f39200;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        p {
+            margin: 10px 0 0;
+            color: #555555;
+            font-size: 14px;
+        }
+        mark {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .back-link {
+            padding: 10px 15px;
+            background-color: #8B0000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background-color: #6b0000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Search Results</h1>
+    </header>
+    <main>
+        <h2>Results for {{ query }}</h2>
+        <a href="/" class="back-link">Back to Search</a>
+        <ul>
+            {% for result in results %}
+            <li>
+                <a href="{{ result.url }}" target="_blank">{{ result.url }}</a>
+                <p>{{ result.snippet|safe }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>
