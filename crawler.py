@@ -12,7 +12,7 @@ def extract_clean_content(html):  # Extrahiert den bereinigten Textinhalt aus HT
     text = soup.get_text(separator="\n", strip=True) # Liefert den Textinhalt der Seite, Zeilen werden getrennt
     return "\n".join(line.strip() for line in text.splitlines() if line.strip()) # Gibt nur nicht-leere Zeilen zurück
 
-def crawl(base_url, domain_restrict, max_pages=None):  # Crawlt eine Website und sammelt Seiteninhalte
+def crawl(base_url, domain_restrict, max_pages=1000):  # Crawlt eine Website und sammelt Seiteninhalte
     crawled = set() # Speichert bereits besuchte URLs
     to_crawl = {base_url} # Speichert URLs, die noch besucht werden sollen
     pages = [] # Speichert die gecrawlten Seiten mit URL und Inhalt
